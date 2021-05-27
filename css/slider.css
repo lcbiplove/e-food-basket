@@ -16,7 +16,7 @@
     border-radius: 15px;
 }
 /* Style for previous and next buttons */
-.carousel-controls .btn{
+.carousel-controls .btn {
     color: #fff;
     border: 0;
     position: absolute;
@@ -61,4 +61,20 @@
 }
 .carousel-indicators>span.active, .carousel-indicators>span:hover {
     background-color: #000;
+}
+
+
+
+@media screen and (max-width: 760px) {
+    .carousel-controls .btn {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-controls .btn {
+        height: 3rem;
+        width: 3rem;
+    }
 }
