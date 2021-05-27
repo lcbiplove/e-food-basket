@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>eFoodBasket</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/slider.css">
+    <link rel="stylesheet" type="text/css" href="css/product-cards.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-wrapper">
+                <a href="/">
+                    <img class="logo-img" src="images/efoodbasket-name.png" alt="eFoodBasket-logo">
+                </a>
+            </div>
+            <div class="search-box-wrapper">
+                <form class="search-form" action="#" method="get">
+                    <div class="search-categories">
+                        <select class="category-select" name="searchBy">
+                            <option value="">All categories</option>
+                            <option value="">Meat</option>
+                            <option value="">Veg</option>
+                            <option value="">Fish</option>
+                        </select>
+                        <span class="iconify select-arrow" data-icon="ic:round-keyboard-arrow-down" data-inline="false"></span>
+                    </div>
+                    <div class="inp-select-line"></div>
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Search Products, categories...">
+                    </div>
+                    <button class="search-btn" type="submit">
+                        <span class="iconify" data-icon="la:search" data-inline="false"></span>
+                    </button>
+                </form>
+            </div>
+            <div class="cart-account-wrapper">
+                <div class="cart-account-item">
+                    <span class="iconify account" data-icon="line-md:account" data-inline="false"></span>
+                    <span class="cart-icon-title">Account</span>
+                    <span class="iconify down-arrow" data-icon="ant-design:caret-down-outlined" data-inline="false"></span>
+                </div>
+                <div class="cart-acc-separ"></div>
+                <div class="cart-account-item">
+                    <span class="cart-icon-wrapper">
+                        <span class="iconify" data-icon="bx:bx-basket" data-inline="false"></span>
+                        <span class="cart-count">5</span>
+                    </span>
+                    <span class="cart-icon-title">Cart</span>
+                    <span class="iconify down-arrow" data-icon="ant-design:caret-down-outlined" data-inline="false"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main-wrapper">
+            <div class="home-row-wrapper">
+                <div class="carousel-container">
+                    <div id="first-slider" class="carousel-image-wrapper">
+                      <img src="images/slider1.jpg" alt="Image" />
+                      <img src="images/slider1.jpg" alt="Image" />
+                      <img src="images/slider1.jpg" alt="Image" />
+                      <img src="images/slider1.jpg" alt="Image" />
+                    </div>
+                </div>  
+            </div>
+
+            <div class="home-row-wrapper">
+                <div class="home-row-title-wrapper">
+                    <div class="home-row-title">Shop by Traders</div>
+                </div>
+                <div class="home-row-content">
+                    <div class="shop-by-images-wrapper">
+                        <div class="shop-by-images-container">
+                            <a class="shop-by-link" href="#">
+                                <img class="shop-by-img" src="images/butchers.jpg" alt="">
+                            </a>
+                            <a class="shop-by-link" href="#">
+                                <img class="shop-by-img" src="images/greengrocers.jpg" alt="">
+                            </a>
+                            <a class="shop-by-link" href="#">
+                                <img class="shop-by-img" src="images/fishmongers.jpg" alt="">
+                            </a>
+                            <a class="shop-by-link" href="#">
+                                <img class="shop-by-img" src="images/bakery.jpg" alt="">
+                            </a>
+                            <a class="shop-by-link" href="#">
+                                <img class="shop-by-img" src="images/delicateseen.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="shop-by-controls d-none">
+                            <span id="shop-by-prev">
+                                <span class="iconify" data-icon="akar-icons:circle-chevron-left-fill" data-inline="false"></span>
+                            </span>
+                            <span id="shop-by-next">
+                                <span class="iconify" data-icon="akar-icons:circle-chevron-right-fill" data-inline="false"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-row-wrapper">
+                <div class="home-row-title-wrapper">
+                    <div class="home-row-title">Popular Products</div>
+                </div>
+                <div class="home-row-content">
+                    <div class="card-row">
+                        <div class="card-col">
+                            <div class="card">
+                                <div class="card-img-wrapper">
+                                    <a href="#">
+                                        <img class="card-img" src="images/placeholder-image.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <a href="#">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div class="card-rating">
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star half"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">1.23 GBP</div>
+                                        <div class="card-cart">
+                                            <span></span>
+                                            <span class="iconify" data-icon="fluent:cart-20-regular" data-inline="false"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col">
+                            <div class="card">
+                                <div class="card-img-wrapper">
+                                    <a href="#">
+                                        <img class="card-img" src="images/placeholder-image.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <a href="#">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div class="card-rating">
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star half"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">1.23 GBP</div>
+                                        <div class="card-cart">
+                                            <span></span>
+                                            <span class="iconify" data-icon="fluent:cart-20-regular" data-inline="false"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col">
+                            <div class="card">
+                                <div class="card-img-wrapper">
+                                    <a href="#">
+                                        <img class="card-img" src="images/placeholder-image.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <a href="#">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div class="card-rating">
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star half"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">1.23 GBP</div>
+                                        <div class="card-cart">
+                                            <span></span>
+                                            <span class="iconify" data-icon="fluent:cart-20-regular" data-inline="false"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col">
+                            <div class="card">
+                                <div class="card-img-wrapper">
+                                    <a href="#">
+                                        <img class="card-img" src="images/placeholder-image.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <a href="#">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div class="card-rating">
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star half"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">1.23 GBP</div>
+                                        <div class="card-cart">
+                                            <span></span>
+                                            <span class="iconify" data-icon="fluent:cart-20-regular" data-inline="false"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-col">
+                            <div class="card">
+                                <div class="card-img-wrapper">
+                                    <a href="#">
+                                        <img class="card-img" src="images/placeholder-image.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <a href="#">
+                                            Product Title
+                                        </a>
+                                    </div>
+                                    <div class="card-rating">
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star on"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">1.23 GBP</div>
+                                        <div class="card-cart">
+                                            <span></span>
+                                            <span class="iconify" data-icon="fluent:cart-20-regular" data-inline="false"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <div class="footer-title">Get in touch</div>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Careers</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-title">Connections</div>
+                    <div class="footer-connect-links">
+                        <a href="#" class="footer-connect-link">
+                            <span class="iconify" data-icon="logos:facebook" data-inline="false"></span>
+                        </a>
+                        <a href="#" class="footer-connect-link">
+                            <span class="iconify" data-icon="logos:youtube-icon" data-inline="false"></span>
+                        </a>
+                        <a href="#" class="footer-connect-link">
+                            <span class="iconify" data-icon="logos:twitter" data-inline="false"></span>
+                        </a>
+                        <a href="#" class="footer-connect-link">
+                            <span class="iconify" data-icon="logos:linkedin-icon" data-inline="false"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-title">Earnings</div>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Advertise your product</a>
+                        <a href="#" class="footer-link">Sell on Market</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-title">Account</div>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Your account</a>
+                        <a href="#" class="footer-link">100% purchase protection</a>
+                        <a href="#" class="footer-link">Chat with us</a>
+                        <a href="#" class="footer-link">Help</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                Copyright &copy; 2021 e-food basket
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/slider.js"></script>
+    <script src="js/shopBySlider.js"></script>
+</body>
+</html>
