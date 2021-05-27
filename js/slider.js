@@ -12,7 +12,10 @@
     transitionTime = 400,
     autoplay = true
   ) {
-    const IMAGE_WIDTH = innerWidth-40;
+
+    let main_width_container = document.querySelector(".main-wrapper");
+
+    let IMAGE_WIDTH = main_width_container.clientWidth-40;
     const IMAGE_HEIGHT = 600;
   
     const IS_AUTOPLAY = autoplay;
@@ -51,17 +54,20 @@
     this.carouselImageContainer.append(clonedFirstImage);
     this.carouselImageContainer.prepend(clonedLastImage);
   
-    // Hide cloned lastImage to left side
-    this.carouselImageContainer.style.transform = `translateX(-${IMAGE_WIDTH}px) translateZ(0)`;
-    this.slidesCount = this.carouselImageContainer.childElementCount;
+    this.setResizeImage = () => {
+      IMAGE_WIDTH = main_width_container.clientWidth-40;
+      // Hide cloned lastImage to left side
+      this.carouselImageContainer.style.transform = `translateX(-${IMAGE_WIDTH}px) translateZ(0)`;
+      this.slidesCount = this.carouselImageContainer.childElementCount;
 
-    // New
-    this.carouselImageContainer.style.width  = `${IMAGE_WIDTH*this.slidesCount}px`;
-    this.carouselContainer.style.maxWidth = `${IMAGE_WIDTH}px`;
+      this.carouselImageContainer.style.width  = `${IMAGE_WIDTH*this.slidesCount}px`;
+      this.carouselContainer.style.maxWidth = `${IMAGE_WIDTH}px`;
 
-   [...this.carouselImageContainer.children].forEach(item => {
+      [...this.carouselImageContainer.children].forEach(item => {
         item.style.width = `${IMAGE_WIDTH}px`;
     });
+    }
+    this.setResizeImage();
 
     this.autoplay = () => {
       this.autoplay.interval = setInterval(() => {
@@ -205,4 +211,10 @@
     this.carouselContainer.appendChild(dotsWrapper);
   }
 
-  new Slider("first-slider", 4000, 400);
+
+var slider = new Slider("first-slider", 4000, 400);
+
+
+window.addEventListener('resize', function(){
+  slider.setResizeImage();
+});

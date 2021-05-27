@@ -29,6 +29,11 @@ a:hover {
 .text-center {
     text-align: center;
 }
+.max-width-wrapper {
+    max-width: 1188px;
+    margin: auto auto;
+    box-sizing: border-box;
+}
 
 
 
@@ -254,10 +259,7 @@ main {
 footer {
     padding: 50px 40px 10px 40px;
 }
-.footer-wrapper {
-    max-width: 1100px;
-    margin: auto auto;
-}
+
 .footer-row {
     display: flex;
     flex-wrap: wrap;
