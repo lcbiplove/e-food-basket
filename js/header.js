@@ -5,6 +5,7 @@ window.addEventListener("load", function(){
     var search_icon = document.getElementById("mbl-search");
     var search_wrapper = document.querySelector(".search-box-wrapper");
     var mbl_search_container = document.getElementById("mbl-search-container");
+    var header = document.querySelector("header");
 
     function resetToDefault(){
         closeMenu();
@@ -29,7 +30,8 @@ window.addEventListener("load", function(){
         menu_icon.classList.remove("open");
     }
     function closeSearch(){
-        mbl_search_container.style.display = "none";
+        mbl_search_container.style.height = "0px";
+        mbl_search_container.innerHTML = "";
     }
     menu_icon.onclick = function(){
         if(this.classList.contains("open")){
@@ -45,8 +47,9 @@ window.addEventListener("load", function(){
         resetToDefault();
     }
     search_icon.onclick = function(){
-        mbl_search_container.style.display = "block";
         mbl_search_container.innerHTML = search_wrapper.innerHTML;
+        mbl_search_container.style.height = header.clientHeight +"px";
+        document.querySelectorAll(".search-inpt")[1].focus();
         showOverlay();
     }
 });
