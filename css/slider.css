@@ -57,7 +57,7 @@
     border-radius: 50%;
     margin-right: 5px;
     background-color: #fff;
-    box-shadow: 0 4px 4px 0 #00000025;
+    box-shadow: 0 4px 4px 0 #00000050;
 }
 .carousel-indicators>span.active, .carousel-indicators>span:hover {
     background-color: #000;
@@ -70,9 +70,22 @@
         height: 3.5rem;
         width: 3.5rem;
     }
+    .carousel-indicators {
+        bottom: 5px;
+    }
+    .carousel-indicators>span {
+        width: 16px;
+        height: 16px;
+        box-shadow: 0 2px 2px 0 #00000050;
+    }
 }
 
 @media screen and (max-width: 480px) {
+    .carousel-indicators>span {
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 2px 2px 0 #00000050;
+    }
     .carousel-controls .btn {
         height: 3rem;
         width: 3rem;
