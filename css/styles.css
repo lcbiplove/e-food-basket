@@ -411,13 +411,13 @@ footer {
     }
     
     #menu:hover span:nth-child(1) {
-        top: 10px;
+        top: 8px;
     }
     #menu:hover span:nth-child(2) {
         width: 0;
     }
     #menu:hover span:nth-child(3) {
-        top: -10px;
+        top: -8px;
     }
     .cart-account-item .account {
         font-size: 1.2rem;
