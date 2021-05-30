@@ -70,6 +70,7 @@ nav {
     background-color: #00000090;
     z-index: 100;
     transition: all 0.5s;
+    cursor: pointer;
 }
 #menu {
 	display: none;
@@ -286,6 +287,19 @@ nav {
 .menu-link-icon {
     font-size: 1.5rem;
 }
+.mbl-search-container {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 101;
+    box-shadow: 0 1px 2px #ddd;
+}
+
+
 
 /* Main container */
 main {
@@ -397,7 +411,7 @@ footer {
 
 @media screen and (max-width: 800px) {
     header {
-        padding: 5px 0;
+        padding: 10px 0;
     }
     #menu {
         display: flex;
@@ -415,7 +429,7 @@ footer {
         display: flex;
     }
     main {
-        padding-top: 40px;
+        padding-top: 50px;
     }
     .footer-col {
         width: 50%;
