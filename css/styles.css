@@ -318,6 +318,9 @@ main {
 .home-row-wrapper {
     margin: 50px 0;
 }
+.home-row-wrapper .carousel-image-wrapper img {
+    border-radius: 15px;
+}
 .home-row-title-wrapper {
     display: flex;
     justify-content: center;
@@ -335,6 +338,8 @@ main {
 }
 .shop-by-images-wrapper {
     position: relative;
+}
+.shop-img-side-marg {
     margin-top: 20px;
     margin-left: -20px;
 }

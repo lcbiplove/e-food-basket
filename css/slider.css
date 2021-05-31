@@ -4,7 +4,6 @@
     max-width: 800px;
     overflow: hidden;
     font-size: 12px;
-    border-radius: 15px;
 }
 .carousel-image-wrapper {
     margin: 0;
@@ -13,7 +12,6 @@
 }
 .carousel-container img {
     width: 100%;
-    border-radius: 15px;
 }
 /* Style for previous and next buttons */
 .carousel-controls .btn {

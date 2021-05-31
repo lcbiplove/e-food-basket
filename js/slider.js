@@ -10,12 +10,12 @@
     imageWrapperId,
     hold = 4000,
     transitionTime = 400,
-    autoplay = true
+    autoplay = true,
+    showNextPrev = true,
   ) {
 
     let main_width_container = document.querySelector(".main-wrapper");
 
-    let IMAGE_WIDTH = main_width_container.clientWidth-40;
     const IMAGE_HEIGHT = 600;
   
     const IS_AUTOPLAY = autoplay;
@@ -26,22 +26,31 @@
     this.carouselImageContainer = document.getElementById(`${imageWrapperId}`);
   
     this.carouselContainer = this.carouselImageContainer.parentElement;
-    const arrowsWrapper = document.createElement("div");
-    arrowsWrapper.className = "carousel-controls";
-  
-    this.prev = document.createElement("div");
-    this.prev.className = "btn";
-    this.prev.innerHTML = '<span class="iconify" data-icon="akar-icons:circle-chevron-left-fill" data-inline="false" data-height="100%"></span>';
-  
-    this.next = document.createElement("div");
-    this.next.className = "btn";
-    this.next.innerHTML = '<span class="iconify" data-icon="akar-icons:circle-chevron-right-fill" data-inline="false" data-height="100%"></span>';
-  
-    arrowsWrapper.appendChild(this.prev);
-    arrowsWrapper.appendChild(this.next);
-    this.carouselContainer.parentElement.style.width = IMAGE_WIDTH;
-    this.carouselContainer.parentElement.style.position = "relative";
-    this.carouselContainer.parentElement.appendChild(arrowsWrapper);
+
+    let IMAGE_WIDTH = this.carouselContainer.parentElement.clientWidth;
+
+    this.buildPrevNextButtons = () => {
+      const arrowsWrapper = document.createElement("div");
+      arrowsWrapper.className = "carousel-controls";
+    
+      this.prev = document.createElement("div");
+      this.prev.className = "btn";
+      this.prev.innerHTML = '<span class="iconify" data-icon="akar-icons:circle-chevron-left-fill" data-inline="false" data-height="100%"></span>';
+    
+      this.next = document.createElement("div");
+      this.next.className = "btn";
+      this.next.innerHTML = '<span class="iconify" data-icon="akar-icons:circle-chevron-right-fill" data-inline="false" data-height="100%"></span>';
+    
+      arrowsWrapper.appendChild(this.prev);
+      arrowsWrapper.appendChild(this.next);
+      this.carouselContainer.parentElement.style.width = IMAGE_WIDTH;
+      this.carouselContainer.parentElement.style.position = "relative";
+      this.carouselContainer.parentElement.appendChild(arrowsWrapper);
+    }
+
+    if(showNextPrev){
+      this.buildPrevNextButtons();
+    }
   
     /* Cloned first and last images are for infinite in forward direction looping 
     slides */
@@ -55,7 +64,7 @@
     this.carouselImageContainer.prepend(clonedLastImage);
   
     this.setResizeImage = () => {
-      IMAGE_WIDTH = main_width_container.clientWidth-40;
+      IMAGE_WIDTH = this.carouselContainer.parentElement.clientWidth;
       // Hide cloned lastImage to left side
       this.carouselImageContainer.style.transform = `translateX(-${IMAGE_WIDTH}px) translateZ(0)`;
       this.slidesCount = this.carouselImageContainer.childElementCount;
@@ -212,9 +221,3 @@
   }
 
 
-var slider = new Slider("first-slider", 4000, 400);
-
-
-window.addEventListener('resize', function(){
-  slider.setResizeImage();
-});
