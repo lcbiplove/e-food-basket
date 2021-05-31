@@ -65,6 +65,127 @@
     padding: 10px 15px;
 }
 .product-title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+}
+.rating-share-wrapper {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    align-items: center;
+}
+.product-ratings-wrap {
+    display: flex;
+    font-size: 1rem;
+    align-items: baseline;
+}
+.product-md-rating  {
+    display: flex;
+    font-size: 1rem;
+    align-items: baseline;
+    flex-wrap: nowrap;
+}
+.product-md-rating .active {
+    color: var(--star-color) ;
+}
+.md-star {
+    width: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    color: #c4c4c4;
+    font-size: 20px;
+    margin-right: -3px;
+}
+.md-star:last-child {
+    margin-right: 0;
+}
+.md-star:before {
+    content:'\2605';
+}
+.md-star.on {
+    color: var(--star-color);
+}
+.md-star.half:after {
+    content:'\2605';
+    color: var(--star-color);
+    position: absolute;
+    margin-left: -17px;
+    width: 8px;
+    overflow: hidden;
+}
+.product-rating-in-num {
+    margin-left: 10px;
+    color: #777;
+}
+.share-product {
+    padding: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.stock-text {
+    display: flex;
+    color: #777;
+    margin-left: 30px;
+    position: relative;
+}
+.stock-text::before{
+    content: "";
+    position: absolute;
+    top:50%;
+    left: -12px;
+    width: 5px;
+    transform: translate(0, -50%);
+    height: 5px;
+    background-color: #999;
+    border-radius: 50%;
+}
+.price-wrapper {
+    padding: 10px 0;
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.product-desc, .allergy-inform {
     margin-bottom: 15px;
+}
+.quantity-wrapper {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+.quantity-wrapper>span {
+    display: inline-block;
+    margin-right: 30px;
+}
+.quantity-wrapper>button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+.quantity-wrapper .quantity {
+    margin: 0;
+    padding: 0 20px;
+}
+.product-actions {
+    margin: 20px 0;
+}
+.product-action {
+    padding: 12px 18px;
+    border: 0;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.buy-now {
+    background-color: var(--light-green);
+}
+.add-to-cart {
+    background-color: var(--dark-green);
 }

@@ -32,6 +32,12 @@ a:hover {
 .ml-5 {
     margin-left: 5px;
 }
+.d-flex {
+    display: flex;
+}
+.blue-text {
+    color: var(--my-blue);
+}
 .max-width-wrapper {
     max-width: 1300px;
     margin: auto auto;
