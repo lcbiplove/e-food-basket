@@ -349,8 +349,10 @@ main {
 .shop-by-img {
     display: block;
     width: 100%;
-    min-width: 200px;
-    box-shadow: 0px 0px 5px #000;
+    min-width: 150px;
+    box-shadow: 0px 0px 5px #00000050;
+    max-height: 250px;
+    border: 1px solid #bbb;
 }
 .shop-by-controls span {
     position: absolute;
