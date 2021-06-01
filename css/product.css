@@ -21,15 +21,15 @@
 .product-preiview-img-wrapper {
     overflow: hidden;
     text-align: center;
-    height: 350px;
-    width: 350px;
+    max-height: 350px;
+    max-width: 350px;
     margin: auto auto;
     position: relative;
 }
 .img-zoom-lens {
     visibility: hidden;
     position: absolute;
-    width: 180px;
+    width: 120px;
     cursor: crosshair;
     height: 120px;
     background-color: #0000ff30;
@@ -37,10 +37,15 @@
 .zoom-img-result {
     box-shadow: 0 0 10px #999;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 650px;
+    max-height: 650px;
+    height: 100%;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 15px;
     z-index: 1;
     transform: scale(0);
     transform-origin: bottom left;
@@ -389,6 +394,9 @@
 @media screen and (max-width: 620px) {
     .product-gallery{
         width: 100%;
+    }
+    .product-preiview-img {
+        cursor: auto;
     }
     .product-details {
         width: 100%;
