@@ -38,36 +38,6 @@
     font-size: 1rem;
     font-weight: 600;
 }
-.card-rating  {
-    display: flex;
-    font-size: 0.5rem;
-}
-.card-rating .active {
-    color: var(--star-color) ;
-}
-.star {
-    width: 18px;
-    display: inline-block;
-    color: #c4c4c4;
-    font-size: 18px;
-}
-.star:last-child {
-    margin-right: 0;
-}
-.star:before {
-    content:'\2605';
-}
-.star.on {
-    color: var(--star-color);
-}
-.star.half:after {
-    content:'\2605';
-    color: var(--star-color);
-    position: absolute;
-    margin-left: -16px;
-    width: 9px;
-    overflow: hidden;
-}
 .card-footer {
     display: flex;
     justify-content: space-between;

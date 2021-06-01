@@ -38,6 +38,9 @@ a:hover {
 .blue-text {
     color: var(--my-blue);
 }
+.grey-text {
+    color: #777;
+}
 .max-width-wrapper {
     max-width: 1300px;
     margin: auto auto;
