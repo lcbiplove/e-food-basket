@@ -9,20 +9,25 @@
     display: flex;
     justify-content: center;
 }
+.products-main-div-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .product-gallery{
-    width: 350px;
+    width: 42%;
     box-sizing: border-box;
 }
 .product-preiview-img-wrapper {
     overflow: hidden;
-    height: 350px;
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 .product-preiview-img {
     display: inline-block;
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    width: 100%;
     vertical-align: middle;
 }
 .product-img-options {
@@ -36,7 +41,6 @@
     margin-right: 10px;
     cursor: pointer;
     border: 1px solid #ccc;
-
 }
 .product-img-indicator:hover, .product-img-indicator.active {
     border: 1px solid var(--my-orange);
@@ -60,7 +64,7 @@
     filter: drop-shadow(0 4px 4px #00000050);
 }
 .product-details {
-    width: calc(100% - 350px);
+    width: 58%;
     box-sizing: border-box;
     padding: 10px 10px 10px 30px;
 }
@@ -87,6 +91,10 @@
     padding: 5px;
     font-size: 1.5rem;
     cursor: pointer;
+    color: #777;
+}
+.share-product:hover {
+    color: #000;
 }
 .stock-text {
     display: flex;
@@ -233,8 +241,8 @@
     color: #777;
 }
 .isVerified {
-    display: inline-block;
-    margin-left: 20px;
+    display: flex;
+    margin-left: 15px;
 }
 .rater-wrapper .isVerified::after {
     content: 'Verified Purchase';
@@ -312,6 +320,7 @@
     border-radius: 2px;
     z-index: 1;
     box-shadow: 1px 3px 3px #ccc;
+    line-height: 24px
 }
 .query-indicator.answer {
     background-color: var(--dark-green);
@@ -346,4 +355,55 @@
     color: #777;
     display: flex;
     flex-wrap: nowrap;
+}
+
+
+
+
+
+@media screen and (max-width: 620px) {
+    .product-gallery{
+        width: 100%;
+    }
+    .product-details {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 30px;
+        padding: 0;
+    }
+    .rating-reviews-wrapper {
+        padding: 30px 15px;
+    }
+    .main-rating-wrapper {
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+    .advance-rating-wrapper {
+        margin: 10px 0 30px 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 480px) {
+    .product-img-indicator {
+        width: 50px;
+        height: 50px;
+    }
+    .rating-percent-bar {
+        margin: 0 15px;
+        width: 100px;
+        height: 8px;
+        border-radius: 2px;
+    }
+    .submit-btn  {
+        padding: 10px;
+    }
+    .query-indicator {
+        width: 24px;
+        height: 20px;
+        margin-right: 10px;
+        box-shadow: 1px 2px 2px #ccc;
+        line-height: 20px
+    }
+    
 }

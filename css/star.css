@@ -76,3 +76,15 @@
     width: 15px;
     overflow: hidden;
 }
+
+
+@media screen and (max-width: 480px) {
+    .md-star {
+        width: 18px;
+        font-size: 18px;
+    }
+    .md-star.half:after {
+        margin-left: -16px;
+        width: 8px;
+    }
+}

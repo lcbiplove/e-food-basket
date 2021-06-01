@@ -460,6 +460,9 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
     nav {
         align-items: center;
         display: flex;
@@ -488,7 +491,15 @@ footer {
         top: -8px;
     }
     .cart-account-item .account {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+    }
+    .cart-icon-wrapper {
+        font-size: 1.6rem;
+    }
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
     }
     main {
         padding-top: 40px;
