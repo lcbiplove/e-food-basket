@@ -15,16 +15,14 @@ window.addEventListener("load", function(){
 
     var quantityValue = +quantityValueDiv.innerHTML || 0;
 
+    var totalRatingCount = document.querySelector(".rating-summary-wrapper").getAttribute("data-rating-count");
+
     var checkDisablePlusMinus = function() {
         if(quantityValue <= 0){
             subtractQuantityBtn.classList.add("disabled");
-            buyNowBtn.setAttribute("disabled",true);
-            addToCartBtn.setAttribute("disabled",true);
 
         } else {
             subtractQuantityBtn.classList.remove("disabled");
-            buyNowBtn.removeAttribute("disabled");
-            addToCartBtn.removeAttribute("disabled");
         }
 
         if(quantityValue >= MAX_QUANTITY_VALUE){
