@@ -247,13 +247,22 @@
     display: flex;
     align-items: center;
 }
-.rating-percent-bar {
+.rating-percent-bar-wrapper {
     margin: 0 15px 0 20px;
     width: 150px;
     height: 12px;
     border-radius: 3px;
     background-color: #c4c4c4;
+    position: relative;
 }
+.rating-percent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--star-color);
+}
+
 .review-heading {
     font-size: 1.2rem;
     font-weight: 600;
@@ -422,7 +431,7 @@
         width: 50px;
         height: 50px;
     }
-    .rating-percent-bar {
+    .rating-percent-bar-wrapper  {
         margin: 0 15px;
         width: 100px;
         height: 8px;

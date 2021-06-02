@@ -1,7 +1,7 @@
 /* https://css-tricks.com/five-methods-for-five-star-ratings/ */
 :root {
-    --star-color: #c4c4c4;
-    --star-background: #faff00;
+    --star-bg-color: #c4c4c4;
+    --star-color: #faff00;
 }
 .md-stars {
     --percent: calc(var(--rating) / 5 * 100%);
@@ -13,7 +13,7 @@
 .md-stars::before {
     content: '★★★★★';
     letter-spacing: 2px;
-    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-bg-color) var(--percent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -28,7 +28,7 @@
 .sm-stars::before {
     content: '★★★★★';
     letter-spacing: 0;
-    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-bg-color) var(--percent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -43,7 +43,7 @@
 .lg-stars::before {
     content: '★★★★★';
     letter-spacing: 3px;
-    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-bg-color) var(--percent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -60,7 +60,7 @@
     .md-stars::before {
         content: '★★★★★';
         letter-spacing: 0;
-        background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+        background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-bg-color) var(--percent));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
