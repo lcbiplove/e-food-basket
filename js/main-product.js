@@ -1,8 +1,53 @@
 window.addEventListener("load", function(){
-    imageZoom("preview-img", "zoom-img-result");   
+    imageZoom("preview-img", "zoom-img-result"); 
+    
+    var MAX_QUANTITY_VALUE = 20;
     
     var previewImage = document.getElementById("preview-img");
     var productIndicators = document.querySelectorAll(".product-img-indicator");
+
+    var buyNowBtn = document.getElementById("buy-now");
+    var addToCartBtn = document.getElementById("add-to-cart");
+
+    var addQuantityBtn = document.getElementById("add-quantity");
+    var subtractQuantityBtn = document.getElementById("subtract-quantity");
+    var quantityValueDiv = document.getElementById("quantity-value");
+
+    var quantityValue = +quantityValueDiv.innerHTML || 0;
+
+    var checkDisablePlusMinus = function() {
+        if(quantityValue <= 0){
+            subtractQuantityBtn.classList.add("disabled");
+            buyNowBtn.setAttribute("disabled",true);
+            addToCartBtn.setAttribute("disabled",true);
+
+        } else {
+            subtractQuantityBtn.classList.remove("disabled");
+            buyNowBtn.removeAttribute("disabled");
+            addToCartBtn.removeAttribute("disabled");
+        }
+
+        if(quantityValue >= MAX_QUANTITY_VALUE){
+            addQuantityBtn.classList.add("disabled");
+        } else {
+            addQuantityBtn.classList.remove("disabled");
+        }
+    }
+
+    checkDisablePlusMinus();
+
+    addQuantityBtn.onclick = function(){
+        quantityValue += 1;
+        quantityValueDiv.innerHTML = quantityValue;
+
+        checkDisablePlusMinus();
+    }
+    subtractQuantityBtn.onclick = function(){
+        quantityValue -= 1;
+        quantityValueDiv.innerHTML = quantityValue;
+
+        checkDisablePlusMinus();
+    }
 
     productIndicators.forEach(function(item){
         item.onclick = function(){
