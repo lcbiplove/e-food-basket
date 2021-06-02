@@ -19,7 +19,6 @@ window.onload = function() {
   shopByNext.addEventListener("click", function () {
     var browse_width = browse.scrollWidth;
     var initial = scrollTo;
-    console.log(browse_width);
     
     scrollTo += screen_width;
 
@@ -33,7 +32,7 @@ window.onload = function() {
   });
 
   shopByPrev.addEventListener("click", function () {
-      scrollTo -= screen_width;
+    scrollTo -= screen_width;
 
     if (scrollTo < 0) scrollTo = 0;
 
@@ -49,13 +48,14 @@ window.onload = function() {
   var checkBrowserOverflow = function () {
 
     if (browse.scrollWidth > browse.clientWidth) {
+      screen_width = document.querySelector(".shop-by-images-wrapper").offsetWidth;
       browseControls.classList.remove("d-none");
     } else {
       browseControls.classList.add("d-none");
     }
   };
-  checkBrowserOverflow();
 
+  checkBrowserOverflow();
 }
 
 
