@@ -70,7 +70,7 @@ function imageZoom(imgID, resultID) {
     }.bind(this);
 
     var checkForWidth = function(){
-        if(innerWidth <= 620){
+        if(innerWidth <= 620 && ((typeof lens !== "undefined" || typeof img !== "undefined" )) ){
             lens.removeEventListener('mousemove', myMoveLensListener);
             img.removeEventListener('mousemove', myMoveLensListener);
             img.parentElement.removeEventListener("mouseenter", myMouseEnterListener);
