@@ -1,5 +1,3 @@
-
-
 .card-row {
     margin: 0 -20px;
     display: flex;
@@ -8,6 +6,13 @@
 .card-col {
     float: left;
     width: 25%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top: 20px;
+}
+.card-col-2 {
+    float: left;
+    width: 50%;
     box-sizing: border-box;
     padding: 0 20px;
     margin-top: 20px;
@@ -71,10 +76,22 @@
     .card-col {
         width: 50%;
     }
+    .card-col-2 {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 620px) {
+    .card-col-2 {
+        width: 50%;
+    }
+    
 }
 
 @media screen and (max-width: 480px) {
     .card-col {
+        width: 100%;
+    }
+    .card-col-2 {
         width: 100%;
     }
 }
