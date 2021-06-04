@@ -1,7 +1,7 @@
 /* https://css-tricks.com/five-methods-for-five-star-ratings/ */
 :root {
     --star-bg-color: #c4c4c4;
-    --star-color: #faff00;
+    --star-color: #FFC315;
 }
 .md-stars {
     --percent: calc(var(--rating) / 5 * 100%);
