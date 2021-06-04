@@ -273,10 +273,19 @@ nav {
     z-index: -1;
 }
 .account-nav-links a {
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 1rem;
-    padding: 10px;
+    padding: 15px;
     width: 200px;
+}
+.account-nav-links a:hover {
+    color: #000;
+    background-color: #f5f5f5;
+}
+.account-nav-links a .iconify {
+    font-size: 1.2rem;
+    margin-right: 15px
 }
 .cart-icon-title {
     margin: 0 7px;
