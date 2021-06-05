@@ -17,6 +17,13 @@
     background-size: cover;
     background-position: center;
 }
+.signup-trader-side-banner {
+    width: 180px;
+    background: url(../images/signup-2-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 .signup-container {
     width: calc(100% - 180px);
     display: flex;
@@ -29,6 +36,10 @@
 
 
 @media screen and (max-width: 620px) {
+    .signup-trader-side-banner {
+        width: 0;
+        display: none;
+    }
     .signup-side-banner {
         width: 0;
         display: none;
