@@ -128,6 +128,9 @@
 .more-btn:hover {
     opacity: 0.9;
 }
+.card-big-links .iconify.big-btn {
+    font-size: 2.5rem;
+}
 /* Manage product */
 .add-product {
     display: inline-block;
