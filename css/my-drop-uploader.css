@@ -79,6 +79,15 @@
   height: 10px;
   border-radius: 5px;
 }
+::-webkit-progress-bar {
+  background-color: var(--my-blue);
+  border: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 200px;
+  height: 10px;
+  border-radius: 5px;
+}
 #progress-bar::-webkit-progress-value {
   background-color: var(--my-blue);
   border: 0;
