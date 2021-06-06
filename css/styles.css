@@ -13,6 +13,7 @@ html {
     --star-color: #FFA41C;
     --my-orange: #F57224;
     --my-blue:#2abbe8;
+    --my-red: #d11a2a;
 }
 a {
     color: #000;
@@ -51,6 +52,9 @@ input[type=number] {
 }
 .dark-text {
     color: var(--dark-green);
+}
+.red-text {
+    color: var(--my-red) !important;
 }
 .grey-text {
     color: #777;

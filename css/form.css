@@ -65,10 +65,12 @@
     outline: none;
 }
 .login-btn-wrapper {
+    display: flex;
+    justify-content: space-evenly;
     margin: 20px 0;
     text-align: center;
 }
-.login-btn {
+.login-btn, .delete-btn {
     display: inline-block;
     color: #fff;
     background-color: var(--dark-green);
@@ -78,7 +80,10 @@
     border-radius: 20px;
     cursor: pointer;
 }
-.login-btn:hover {
+.delete-btn {
+    background-color: var(--my-red);
+}
+.login-btn:hover, .delete-btn:hover {
     opacity: 0.8;
 }
 .note-link {
@@ -92,6 +97,7 @@
     color: var(--my-orange);
     text-decoration: underline;
 }
+
 
 
 
