@@ -80,7 +80,6 @@
   border-radius: 5px;
 }
 ::-webkit-progress-bar {
-  background-color: var(--my-blue);
   border: 0;
   -webkit-appearance: none;
   appearance: none;
