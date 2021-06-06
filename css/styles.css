@@ -46,6 +46,12 @@ input[type=number] {
 .blue-text {
     color: var(--my-blue);
 }
+.light-text {
+    color: var(--light-green);
+}
+.dark-text {
+    color: var(--dark-green);
+}
 .grey-text {
     color: #777;
 }
