@@ -159,7 +159,7 @@
                         <div class="select-check-wrapper">
                             <label class="select-check-container">
                                 Select all item(s) (5 items)
-                                <input type="checkbox">
+                                <input id="checkAllCheckbox" type="checkbox">
                                 <span class="checkmark"></span>
                             </label>
                             <div class="check-all-delte-wrapper">
@@ -171,9 +171,9 @@
                     <div class="cart-items-summary-container">
                         <div class="cart-items-container">
                             <div class="card-row">
-                                <div class="card-col-big">
+                                <div id="product-1" class="card-col-big" data-product-id="1">
                                     <label class="select-check-container">
-                                        <input type="checkbox">
+                                        <input class="each-checkbox" type="checkbox" data-product-id="1" data-product-price="57.67" data-product-quantity="1" data-product-total="57.67" data-product-discount="0">
                                         <span class="checkmark"></span>
                                     </label>
                                     <div class="card-big">
@@ -187,7 +187,7 @@
                                                 <a href="product.html">
                                                     Product Title
                                                 </a>
-                                                <button class="individual-delete-btn">
+                                                <button class="individual-delete-btn each-delete">
                                                     <span class="iconify" data-icon="fluent:delete-20-regular" data-inline="false"></span>
                                                 </button>
                                             </div>
@@ -195,28 +195,28 @@
                                                 <div class="card-key-value-row">
                                                     <div class="card-key no-key-sm">Price</div>
                                                     <div class="card-value">
-                                                        <div class="card-big-price">&pound;57.67</div>
+                                                        <div class="card-big-price each-price">&pound;57.67</div>
                                                     </div>
                                                 </div>
                                                 <div class="card-key-value-row cart-trader-name" cl>
                                                     <div class="card-key">Trader</div>
                                                     <div class="card-value">
-                                                        <span class="">Trader Name</span>
+                                                        <span>Trader Name</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="quantity-total-wrapper">
                                                 <div class="quantity-wrapper">
                                                     <span class="no-key-sm">Quantity</span>
-                                                    <button class="quantity-btn">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn">+</button>
+                                                    <button class="quantity-btn each-subtract">-</button>
+                                                    <span class="quantity each-quantity">1</span>
+                                                    <button class="quantity-btn each-add">+</button>
                                                 </div>
                                                 <div class="total-wrapper">
                                                     <div class="total-text">
                                                         Total
                                                     </div>
-                                                    <div class="total-value">
+                                                    <div class="total-value each-total">
                                                         &pound;57.67
                                                     </div>
                                                 </div>
@@ -224,9 +224,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-col-big">
+                                <div class="card-col-big" data-product-id="2">
                                     <label class="select-check-container">
-                                        <input type="checkbox">
+                                        <input class="each-checkbox" type="checkbox" data-product-id="2" data-product-price="30" data-product-quantity="2" data-product-total="60" data-product-discount="0">
                                         <span class="checkmark"></span>
                                     </label>
                                     <div class="card-big">
@@ -240,7 +240,7 @@
                                                 <a href="product.html">
                                                     Product Title
                                                 </a>
-                                                <button class="individual-delete-btn">
+                                                <button class="individual-delete-btn each-delete">
                                                     <span class="iconify" data-icon="fluent:delete-20-regular" data-inline="false"></span>
                                                 </button>
                                             </div>
@@ -248,7 +248,7 @@
                                                 <div class="card-key-value-row">
                                                     <div class="card-key no-key-sm">Price</div>
                                                     <div class="card-value">
-                                                        <div class="card-big-price">&pound;57.67</div>
+                                                        <div class="card-big-price each-price">&pound;30</div>
                                                     </div>
                                                 </div>
                                                 <div class="card-key-value-row cart-trader-name" cl>
@@ -261,16 +261,16 @@
                                             <div class="quantity-total-wrapper">
                                                 <div class="quantity-wrapper">
                                                     <span class="no-key-sm">Quantity</span>
-                                                    <button class="quantity-btn">-</button>
-                                                    <span class="quantity">1</span>
-                                                    <button class="quantity-btn">+</button>
+                                                    <button class="quantity-btn each-subtract">-</button>
+                                                    <span class="quantity each-quantity">2</span>
+                                                    <button class="quantity-btn each-add">+</button>
                                                 </div>
                                                 <div class="total-wrapper">
                                                     <div class="total-text">
                                                         Total
                                                     </div>
-                                                    <div class="total-value">
-                                                        &pound;57.67
+                                                    <div class="total-value each-total">
+                                                        &pound;60
                                                     </div>
                                                 </div>
                                             </div>
@@ -300,7 +300,7 @@
                                     </div>
                                     <div class="cart-summary-row">
                                         <div class="cart-summary-key">Total</div>
-                                        <div class="cart-summary-value light-text">&pound;55.62</div>
+                                        <div id="cart-total" class="cart-summary-value light-text" data-cart-total="200">&pound;200</div>
                                     </div>
                                 </div>
                                 <div class="card-summary-footer">
@@ -364,5 +364,6 @@
     </footer>
 
     <script src="js/header.js"></script>
+    <script src="js/main-cart.js"></script>
 </body>
 </html>
