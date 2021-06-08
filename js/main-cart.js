@@ -1,41 +1,50 @@
-var MAX_QUANTITY_VALUE = 20;
-
-/**
- * Check for each buttons and disable them if necessary
- * 
- * @param {*} quantityValue 
- * @param {*} subtractQuantityBtn 
- * @param {*} addQuantityBtn 
- */
-var checkDisablePlus = function(quantityValue, subtractQuantityBtn, addQuantityBtn) {
-    if(quantityValue <= 0){
-        subtractQuantityBtn.classList.add("disabled");
-    } else {
-        subtractQuantityBtn.classList.remove("disabled");
-    }
-
-    if(quantityValue >= MAX_QUANTITY_VALUE){
-        addQuantityBtn.classList.add("disabled");
-    } else {
-        addQuantityBtn.classList.remove("disabled");
-    }
-}
-
 window.addEventListener("load", function () {
     var checkAllCheckbox  = document.getElementById("checkAllCheckbox");
     var totalElement = document.getElementById("cart-total");
+    var subTotalElement = document.getElementById("cart-sub-total");
+    var discountElement = document.getElementById("cart-discount");
+    var proceedBtn = document.getElementById("proceed-btn");
+    var mainDeleteBtn = this.document.getElementById("main-delete");
 
-    var total = +totalElement.getAttribute("data-cart-total");
+    var total = +document.getElementById("cart-summary").getAttribute("data-cart-total");
+    var subTotal = +document.getElementById("cart-summary").getAttribute("data-cart-sub-total");
+    var discount = +document.getElementById("cart-summary").getAttribute("data-cart-discount") || 0;
 
     var allCheckboxes = document.querySelectorAll(".each-checkbox");
     var allQuantities = document.querySelectorAll(".each-quantity");
-    var allPrices = document.querySelectorAll(".each-price");
     var allTotals = document.querySelectorAll(".each-total");
     var allSubtractBtns = document.querySelectorAll(".each-subtract");
     var allAddBtns = document.querySelectorAll(".each-add");
-    var allDeleteBtns = this.document.querySelectorAll(".each-delete");
+    var allDeleteBtns = document.querySelectorAll(".each-delete");
 
     var myProductData = [];
+
+    var updateAllData = function (new_quantity, index) {
+        myProductData[index].quantity = new_quantity;
+
+        var item_price = myProductData[index].price;
+        var total_without_discount =  new_quantity * item_price;
+        myProductData[index].total = total_without_discount - total_without_discount * myProductData[index].discount / 100;
+
+        subTotal = getSubTotal(myProductData);
+        total = subTotal - subTotal * discount / 100;
+
+        allQuantities[index].innerHTML = new_quantity;
+        allTotals[index].innerHTML = "&pound;"+  myProductData[index].total.toFixed(2);
+        subTotalElement.innerHTML = "&pound;"+subTotal.toFixed(2);
+        totalElement.innerHTML = "&pound;"+total.toFixed(2);
+    }
+
+    var getSelectedItems = function () {
+        var selected_ids = [];
+        allCheckboxes.forEach(function (item, index) {
+            if(item.checked === true) {
+                var id  = myProductData[index].id;
+                selected_ids.push(id);
+            }
+        });
+        return selected_ids;
+    }
 
     /* Collect all initial data and make array of objects */
     allCheckboxes.forEach(function (item) {
@@ -48,6 +57,31 @@ window.addEventListener("load", function () {
         myProductData.push(obj);
     });
 
+    allAddBtns.forEach(function (item, index) {
+        item.onclick = function () {
+            var new_quantity = myProductData[index].quantity + 1;
+
+            updateAllData(new_quantity, index);
+
+            checkDisableBtns(new_quantity, allSubtractBtns[index], allAddBtns[index]);
+
+            checkProceedBtnDisable(myProductData, proceedBtn);
+        }
+    });
+
+    allSubtractBtns.forEach(function (item, index) {
+        item.onclick = function () {
+            var new_quantity = myProductData[index].quantity - 1;
+
+            updateAllData(new_quantity, index);
+
+            checkDisableBtns(new_quantity, allSubtractBtns[index], allAddBtns[index]);
+
+            checkProceedBtnDisable(myProductData, proceedBtn);
+        }
+    });
+    
+
     checkAllCheckbox.onclick = function () {
         allCheckboxes.forEach(function (item) {
             if(checkAllCheckbox.checked === true){
@@ -58,42 +92,19 @@ window.addEventListener("load", function () {
         })
     }
 
-    allAddBtns.forEach(function (item, index) {
+    mainDeleteBtn.onclick = function () {
+        var str = ""
+        getSelectedItems().forEach(function (item) {
+            str += item;
+            str += "  ";
+        })
+        alert("You will delete: "+ str);
+    }
+
+    allDeleteBtns.forEach(function (item, index) {
         item.onclick = function () {
-            myProductData[index].quantity += 1;
-            myProductData[index].total += myProductData[index].price;
-            allQuantities[index].innerHTML = myProductData[index].quantity;
-            allTotals[index].innerHTML = "&pound;"+  myProductData[index].total.toFixed(2);
-
-            var new_total = 0;
-            myProductData.forEach(function(elem){
-                new_total += elem.total;
-            });
-
-            total = new_total;
-            totalElement.innerHTML = "&pound;"+total.toFixed(2);
-
-            checkDisablePlus(myProductData[index].quantity, allSubtractBtns[index], allAddBtns[index]);
+            alert("You will delte id: "+myProductData[index].id);
         }
-    });
-
-    allSubtractBtns.forEach(function (item, index) {
-        item.onclick = function () {
-            myProductData[index].quantity -= 1;
-            myProductData[index].total -= myProductData[index].price;
-            allQuantities[index].innerHTML = myProductData[index].quantity;
-            allTotals[index].innerHTML = "&pound;"+  myProductData[index].total.toFixed(2);
-
-            var new_total = 0;
-            myProductData.forEach(function(elem){
-                new_total += elem.total;
-            });
-
-            total = new_total;
-            totalElement.innerHTML = "&pound;"+total.toFixed(2);
-
-            checkDisablePlus(myProductData[index].quantity, allSubtractBtns[index], allAddBtns[index]);
-        }
-    });
+    })
     
 });

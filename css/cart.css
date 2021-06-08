@@ -216,6 +216,11 @@
   color: #fff;
   background-color: var(--light-green);
 }
+.cart-proceed.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
 .cart-proceed:hover {
   opacity: 0.8;
   color: #fff;
