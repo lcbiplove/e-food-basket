@@ -21,6 +21,17 @@ window.addEventListener("load", function () {
 
     var max_quantity_exceeded = false;
 
+     /* Collect all initial data and make array of objects */
+    allCheckboxes.forEach(function (item) {
+        var obj = {};
+        obj.id = item.getAttribute("data-product-id");
+        obj.price = +item.getAttribute("data-product-price");
+        obj.total = +item.getAttribute("data-product-total");
+        obj.quantity = +item.getAttribute("data-product-quantity");
+        obj.discount = +item.getAttribute("data-product-discount");
+        myProductData.push(obj);
+    });
+
     var totalQuantity = function () {
         var totalQuantity = 0;
         myProductData.forEach(function(item) {
@@ -29,6 +40,11 @@ window.addEventListener("load", function () {
 
         return totalQuantity;
     }
+
+    myProductData.forEach(function (item, index) {
+        checkDisableBtns(item.quantity, allSubtractBtns[index], allAddBtns[index], totalQuantity());
+    });
+
 
     var updateAllData = function (new_quantity, index) {
         myProductData[index].quantity = new_quantity;
@@ -56,17 +72,6 @@ window.addEventListener("load", function () {
         });
         return selected_ids;
     }
-
-    /* Collect all initial data and make array of objects */
-    allCheckboxes.forEach(function (item) {
-        var obj = {};
-        obj.id = item.getAttribute("data-product-id");
-        obj.price = +item.getAttribute("data-product-price");
-        obj.total = +item.getAttribute("data-product-total");
-        obj.quantity = +item.getAttribute("data-product-quantity");
-        obj.discount = +item.getAttribute("data-product-discount");
-        myProductData.push(obj);
-    });
 
 
 
