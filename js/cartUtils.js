@@ -7,14 +7,14 @@ var MAX_QUANTITY_VALUE = 20;
  * @param {*} subtractQuantityBtn 
  * @param {*} addQuantityBtn 
  */
- var checkDisableBtns = function(quantityValue, subtractQuantityBtn, addQuantityBtn) {
+ var checkDisableBtns = function(quantityValue, subtractQuantityBtn, addQuantityBtn, totalQuantity) {
     if(quantityValue <= 0){
         subtractQuantityBtn.classList.add("disabled");
     } else {
         subtractQuantityBtn.classList.remove("disabled");
     }
 
-    if(quantityValue >= MAX_QUANTITY_VALUE){
+    if(totalQuantity >= MAX_QUANTITY_VALUE){
         addQuantityBtn.classList.add("disabled");
     } else {
         addQuantityBtn.classList.remove("disabled");
@@ -41,10 +41,21 @@ var getSubTotal = function (myProductData) {
  * @param {*} myProductData 
  * @param {*} proceedBtn 
  */
-var checkProceedBtnDisable = function (myProductData, proceedBtn) {
+var checkProceedBtnDisable = function (myProductData, proceedBtn, totalQuantity, allAddBtns) {
     if(getSubTotal(myProductData) <= 0){
         proceedBtn.classList.add("disabled");
     } else {
         proceedBtn.classList.remove("disabled");
     }
+
+    if(totalQuantity >= MAX_QUANTITY_VALUE){
+        alert("You cannot add more than "+MAX_QUANTITY_VALUE +" items");
+        proceedBtn.classList.add("disabled");
+        allAddBtns.forEach(function (item) {
+           item.classList.add("disabled"); 
+        });
+    } else {
+        proceedBtn.classList.remove("disabled");
+    }
+    
 }

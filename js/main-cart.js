@@ -19,6 +19,17 @@ window.addEventListener("load", function () {
 
     var myProductData = [];
 
+    var max_quantity_exceeded = false;
+
+    var totalQuantity = function () {
+        var totalQuantity = 0;
+        myProductData.forEach(function(item) {
+            totalQuantity += item.quantity;
+        });
+
+        return totalQuantity;
+    }
+
     var updateAllData = function (new_quantity, index) {
         myProductData[index].quantity = new_quantity;
 
@@ -57,6 +68,8 @@ window.addEventListener("load", function () {
         myProductData.push(obj);
     });
 
+
+
     allAddBtns.forEach(function (item, index) {
         item.onclick = function () {
             var new_quantity = myProductData[index].quantity + 1;
@@ -65,7 +78,7 @@ window.addEventListener("load", function () {
 
             checkDisableBtns(new_quantity, allSubtractBtns[index], allAddBtns[index]);
 
-            checkProceedBtnDisable(myProductData, proceedBtn);
+            checkProceedBtnDisable(myProductData, proceedBtn, totalQuantity(), allAddBtns);
         }
     });
 
@@ -77,7 +90,7 @@ window.addEventListener("load", function () {
 
             checkDisableBtns(new_quantity, allSubtractBtns[index], allAddBtns[index]);
 
-            checkProceedBtnDisable(myProductData, proceedBtn);
+            checkProceedBtnDisable(myProductData, proceedBtn, totalQuantity(), allAddBtns);
         }
     });
     
