@@ -1,4 +1,4 @@
-var MAX_QUANTITY_VALUE = 20;
+var MAX_QUANTITY_VALUE = 21;
 
 /**
  * Check for each buttons and disable them if necessary
@@ -52,5 +52,37 @@ var checkProceedBtnDisable = function (proceedBtn, totalQuantity, allAddBtns) {
     }
     else {
         proceedBtn.classList.remove("disabled");
+    }
+}
+
+
+/**
+ * Returns slot value in string with time from number
+ * 
+ * @param {*} slotNum 
+ * @returns slot value
+ */
+var getSlotValueFromNumber = function (slotNum) {
+    var slot = {
+        "1": "9:00 - 11:00",
+        "2": "12:00 - 14:00",
+        "3": "15:00 - 17:00",
+    }
+    return slot[slotNum];
+}
+
+/**
+ * Check if proceed to payment button should be clickabled based on
+ * slot number and slot day
+ * 
+ * @param {*} slotNum 
+ * @param {*} slotDay 
+ * @param {*} proceedBtn 
+ */
+var checkProceedToPaymentBtn = function (slotNum, slotDay, proceedBtn) {
+    if(slotNum && slotDay){
+        proceedBtn.classList.remove("disabled");
+    } else {
+        proceedBtn.classList.add("disabled");
     }
 }
