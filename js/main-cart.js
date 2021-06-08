@@ -83,7 +83,7 @@ window.addEventListener("load", function () {
 
             checkDisableBtns(new_quantity, allSubtractBtns[index], allAddBtns[index]);
 
-            checkProceedBtnDisable(myProductData, proceedBtn, totalQuantity(), allAddBtns);
+            checkProceedBtnDisable(proceedBtn, totalQuantity(), allAddBtns);
         }
     });
 
@@ -95,7 +95,7 @@ window.addEventListener("load", function () {
 
             checkDisableBtns(new_quantity, allSubtractBtns[index], allAddBtns[index]);
 
-            checkProceedBtnDisable(myProductData, proceedBtn, totalQuantity(), allAddBtns);
+            checkProceedBtnDisable(proceedBtn, totalQuantity(), allAddBtns);
         }
     });
     

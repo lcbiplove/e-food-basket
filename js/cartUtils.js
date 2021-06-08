@@ -38,10 +38,11 @@ var getSubTotal = function (myProductData) {
 /**
  * Check if proceed button should be disabled
  * 
- * @param {*} myProductData 
  * @param {*} proceedBtn 
+ * @param {*} totalQuantity 
+ * @param {*} allAddBtns 
  */
-var checkProceedBtnDisable = function (myProductData, proceedBtn, totalQuantity, allAddBtns) {
+var checkProceedBtnDisable = function (proceedBtn, totalQuantity, allAddBtns) {
     if(totalQuantity >= MAX_QUANTITY_VALUE){
         alert("You cannot add more than "+MAX_QUANTITY_VALUE +" items");
         proceedBtn.classList.add("disabled");
