@@ -250,6 +250,7 @@ nav {
 .cart-account-item:hover {
     background-color: #f5f5f5;
     border-radius: 5px;
+    color: #000;
 }
 .account-nav-link {
     position: relative;

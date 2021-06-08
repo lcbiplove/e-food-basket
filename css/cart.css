@@ -523,4 +523,10 @@
     padding-right: 8px;
     margin-right: 8px;
   }
+  .collection-card-wrapper {
+    padding: 10px 0;
+  }
+  .slot-item {
+    padding: 10px;
+  }
 }
