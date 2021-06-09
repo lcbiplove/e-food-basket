@@ -520,8 +520,45 @@
   width: 100%;
   margin: auto auto;
 }
-
-
+#paypal-btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.pay-inform-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  margin: auto auto;
+  margin-top: 60px;
+}
+.checkPaymentWrapper {
+  display: flex !important;
+  align-items: center;
+  margin: 30px 0;
+}
+.paymentCheck {
+  position: absolute;
+  top: 20px;
+}
+.all-your-data {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-top: 60px 10px;
+}
+.all-your-data .iconify {
+  font-size: 2rem;
+  margin-right: 10px;
+  margin-left: -2px;
+}
+.pay-note- {
+  font-size: 0.8rem;
+  color: #999;
+}
 
 
 

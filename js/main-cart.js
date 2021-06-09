@@ -266,6 +266,16 @@ window.addEventListener("load", function () {
 
     /* Payment */
     var backPaymentBtn = document.getElementById("back-payment");
+    var paypalBtn = document.getElementById("paypal-btn");
+    var checkPaymentTerms = document.getElementById("checkPaymentTerms");
+
+    checkPaymentTerms.onclick = function() {
+        if(this.checked){
+            paypalBtn.classList.remove("disabled");
+        } else {
+            paypalBtn.classList.add("disabled");
+        }
+    }
 
     backPaymentBtn.onclick = function () {
         collectionWrapper.style.transform = "translateX(-100%)";
