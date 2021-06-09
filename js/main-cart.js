@@ -38,11 +38,11 @@ window.addEventListener("load", function () {
 
 
     /* Start collection slot */
-    var allCollectionSlots = document.querySelectorAll(".each-collection-slot");
     var allCollectionDays = document.querySelectorAll(".each-collection-day");
+    var collectionSlotContainer = document.getElementById("collection-slot-container");
 
-    var summarySlotElements = document.querySelectorAll(".summary-slot");
     var summaryDayElements = document.querySelectorAll(".summary-day");
+    var summarySlotElements = document.querySelectorAll(".summary-slot");
     
     var proceedCollectionBtn = document.getElementById("proceed-slot-btn");
     var backCollectionBtn = document.getElementById("back-collection");
@@ -50,8 +50,9 @@ window.addEventListener("load", function () {
     var slotNumber;
     var slotDay;
 
-    /* End collection slot */
+    var collectionSlotData = {};
 
+    /* End collection slot */
 
      /* Collect all initial data and make array of objects */
     allCheckboxes.forEach(function (item) {
@@ -170,25 +171,45 @@ window.addEventListener("load", function () {
 
     /* Collection Slot */
 
-    allCollectionSlots.forEach(function (item) {
-        item.onclick = function(){
-            slotNumber = item.getAttribute("data-slot-number");
-            allCollectionSlots.forEach(function (elem) {
-                elem.classList.remove("active");
+    allCollectionDays.forEach(function (item) {
+        if(!item.classList.contains("disabled")){
+            var slotsArray = item.getAttribute("data-available-slot").split(",");
+            var filteredArray = slotsArray.filter(function(value){
+                return value === "1" || value === "2" || value === "3"
             });
-            item.classList.add("active");
-
-            summarySlotElements.forEach(function (elem) {
-                elem.innerHTML = getSlotValueFromNumber(slotNumber);
-            });
-
-            checkProceedToPaymentBtn(slotNumber, slotDay, proceedCollectionBtn);
+            collectionSlotData[""+item.getAttribute("data-collection-day")+""] = filteredArray;
         }
     });
 
+    console.log(collectionSlotData.Thursday);
+
+    var slotItemClickedHandler = function(){
+        slotNumber = this.slotNumber;
+
+        var allCollectionSlots = document.querySelectorAll(".each-collection-slot");
+        allCollectionSlots.forEach(function (elem) {
+            elem.classList.remove("active");
+        });
+        this.classList.add("active");
+
+        summarySlotElements.forEach(function (elem) {
+            elem.innerHTML = getSlotValueFromNumber(slotNumber);
+        });
+
+        checkProceedToPaymentBtn(slotNumber, slotDay, proceedCollectionBtn);
+    }
+
     allCollectionDays.forEach(function (item) {
         item.onclick = function () {
+            collectionSlotContainer.innerHTML = '<div id="slot-upper-pad"><div class="collection-separator"></div><div class="collection-title-wrapper"><div class="collection-title-key"><span class="iconify" data-icon="bi:clock"data-inline="false"></span>Collection Slot</div><div class="collection-title-value">Time</div></div></div><div id="slot-items"></div>';
+
+            var slotItemsDiv = document.getElementById("slot-items");
+            slotItemsDiv.innerHTML = "";
+            collectionSlotContainer.style.height = "0";
+
             slotDay = item.getAttribute("data-collection-day");
+            slotNumber = null;
+
             allCollectionDays.forEach(function (elem) {
                 elem.classList.remove("active");
             });
@@ -197,6 +218,37 @@ window.addEventListener("load", function () {
             summaryDayElements.forEach(function (elem) {
                 elem.innerHTML = slotDay;
             });
+            
+            var createEachSlotRow = function (slotNumber) {
+                var slotItem = document.createElement("div");
+                slotItem.slotNumber = slotNumber;
+                slotItem.className = "slot-item each-collection-slot";
+                slotItem.setAttribute("data-slot-number", slotNumber);
+
+                var slotKey = document.createElement("div");
+                slotKey.className = "slot-key";
+                slotKey.innerHTML = '<span class="iconify" data-icon="gridicons:product" data-inline="false"></span><span> Collection Slot '+slotNumber+'</span>';
+                slotItem.append(slotKey);
+
+                var slotValue = document.createElement("div");
+                slotValue.className = "slot-value";
+                slotValue.innerHTML = getSlotValueFromNumber(slotNumber);
+                slotItem.append(slotValue);
+
+                slotItemsDiv.append(slotItem);
+
+                slotItem.onclick = slotItemClickedHandler.bind(slotItem);
+            }
+
+            var availableSots = collectionSlotData[""+ slotDay +""];
+            
+            availableSots.forEach(function (elem) {
+                createEachSlotRow(elem);
+            });
+
+            var upperDiv = document.getElementById("slot-upper-pad");
+
+            collectionSlotContainer.style.height = 2 * upperDiv.offsetHeight + slotItemsDiv.offsetHeight + "px";
 
             checkProceedToPaymentBtn(slotNumber, slotDay, proceedCollectionBtn);
         }
@@ -204,13 +256,11 @@ window.addEventListener("load", function () {
 
     proceedCollectionBtn.onclick = function(){
         collectionWrapper.style.transform = "translateX(-200%)";
-        payment.style.transform = "translateX(-200%px)";
+        paymentWrapper.style.transform = "translateX(-200%)";
         progressPayment.classList.add("active");
     }
 
     backCollectionBtn.onclick = function () {
-        var width = cartWrapper.offsetWidth;
-
         shoppingWrapper.style.transform = "translateX(0px)";
         collectionWrapper.style.transform = "translateX(0px)";
         progressCollection.classList.remove("active");        

@@ -403,6 +403,14 @@
   align-items: center;
   margin: 15px 0;
 }
+.collection-slot-container {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+/* .collection-slot-container.active {
+  max-height: 200px;
+} */
 .collection-title-key {
   display: flex;
   align-items: center;
