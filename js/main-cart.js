@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
     var mainDeleteBtn = document.getElementById("main-delete");
     var subtotalItemElems = document.querySelectorAll(".subtotal-items");
 
-    var total = +document.getElementById("cart-summary").getAttribute("data-cart-total");
+    var total = +document.getElementById("cart-summary").getAttribute("data-cart-grand-total");
     var subTotal = +document.getElementById("cart-summary").getAttribute("data-cart-sub-total");
     var discount = +document.getElementById("cart-summary").getAttribute("data-cart-discount") || 0;
 
@@ -31,11 +31,9 @@ window.addEventListener("load", function () {
     var allAddBtns = document.querySelectorAll(".each-add");
     var allDeleteBtns = document.querySelectorAll(".each-delete");
 
-
     var myProductData = [];
 
     /* End shopping cart */
-
 
     /* Start collection slot */
     var allCollectionDays = document.querySelectorAll(".each-collection-day");
@@ -181,8 +179,6 @@ window.addEventListener("load", function () {
         }
     });
 
-    console.log(collectionSlotData.Thursday);
-
     var slotItemClickedHandler = function(){
         slotNumber = this.slotNumber;
 
@@ -265,4 +261,49 @@ window.addEventListener("load", function () {
         collectionWrapper.style.transform = "translateX(0px)";
         progressCollection.classList.remove("active");        
     }
+
+
+
+    /* Payment */
+    var backPaymentBtn = document.getElementById("back-payment");
+
+    backPaymentBtn.onclick = function () {
+        collectionWrapper.style.transform = "translateX(-100%)";
+        paymentWrapper.style.transform = "translateX(-100%)";
+        progressPayment.classList.remove("active");  
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Paypal */
+    paypal
+    .Buttons({
+    style: {
+        layout: "horizontal",
+        tagline: "false",
+        label: "pay",
+        height: 50,
+    },
+    createOrder: function (data, actions) {
+        return actions.order.create({
+        purchase_units: [
+            {
+            amount: {
+                value: (total).toFixed(2),
+            },
+            },
+        ],
+        });
+    },
+    })
+    .render("#paypal-btn");
 });
